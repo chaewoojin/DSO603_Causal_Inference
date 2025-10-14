@@ -322,7 +322,7 @@ class PLRSimulation:
             se = 1.0  # Large standard error as fallback
         else:
             var_theta = Omega / (J**2)
-            se = np.sqrt(max(var_theta / n, 1e-10))  # Ensure positive variance
+            se = np.sqrt(max(var_theta, 1e-10))  # Ensure positive variance
         
         z_alpha = stats.norm.ppf(1 - alpha/2)
         ci_lower = theta_hat - z_alpha * se
